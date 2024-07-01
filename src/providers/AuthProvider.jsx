@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 import { app } from "../firebase/firebase.config";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 
-export const AuthContext = createContext(null);
+export const AuthContext = createContext();
 const auth = getAuth(app);
 const AuthProvider = ({children}) => {
 
@@ -41,22 +41,25 @@ const AuthProvider = ({children}) => {
 
 
     useEffect(()=>{
-        const unsubscribe = onAuthStateChanged(auth, currentUser =>{
+        const unsubscribe =  onAuthStateChanged(auth, currentUser =>{
+            console.log("current ",currentUser);
             setUser(currentUser);
+            
             if(currentUser){
                 const userInfo = {email: currentUser.email};
                 axiosPublic.post('/jwt', userInfo)
                 .then(res =>{
                     if(res.data.token){
                         localStorage.setItem('access-token',res.data.token);
-                        setLoading(false);
+                         setLoading(false);
                     }
                 })
             }
             else{
                 localStorage.removeItem('access-token');
-                setLoading(false);
+                 setLoading(false);
             }
+            //setLoading(false);
             
         })
         return ()=>{
