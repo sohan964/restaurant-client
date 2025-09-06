@@ -22,7 +22,7 @@ const NavBar = () => {
         <Link to="/menu">Menu</Link>
       </li>
       <li>
-        <Link to="/order/salad">Order</Link>
+        <Link to="/order/boti">Order</Link>
       </li>
       <li>
         {
@@ -32,7 +32,6 @@ const NavBar = () => {
       <li>
         <Link to="/dashboard/cart">
           <button className="">
-            
             <div className="badge badge-secondary"><FaShoppingCart></FaShoppingCart> +{cart.length}</div>
           </button>
         </Link>
@@ -81,7 +80,9 @@ const NavBar = () => {
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <Link to="/">
+              <button className="btn">Home</button>
+          </Link>
         </div>
       </div>
     </>

@@ -11,12 +11,22 @@ const CheckoutForm = () => {
     const [clientSecret, setClientSecret] = useState('');
     const {user} = useAuth();
     const [transactionId, setTransactionId] = useState('');
+    const [userInfo, setUserInfo] = useState(null);
   const stripe = useStripe();
   const elements = useElements();
     const axiosSecure = useAxiosSecure();
     const [cart, refetch] = useCart();
     const navigate = useNavigate();
     const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+
+      useEffect(() => {
+    if (user?.email) {
+      axiosSecure.get(`/users/${user.email}`).then((res) => {
+        setUserInfo(res.data);
+      });
+    }
+  }, [user?.email, axiosSecure]);
+
     useEffect(()=>{
         if(totalPrice>0){
             axiosSecure.post('/create-payment-intent',{price: totalPrice})
@@ -77,7 +87,8 @@ const CheckoutForm = () => {
                 date: new Date(), //utc date convert. use Moment js to
                 cartIds: cart.map(item => item._id),
                 menuItemIds: cart.map(item => item.menuId),
-                status: 'pending'
+                status: 'pending',
+                address: userInfo.address
             }
             const res = await axiosSecure.post('/payments', payment);
             console.log('payment saved', res.data);

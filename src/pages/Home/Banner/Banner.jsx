@@ -1,40 +1,35 @@
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
-import img1 from '../../../assets/home/01.jpg'
-import img2 from '../../../assets/home/02.jpg'
-import img3 from '../../../assets/home/03.png'
-import img4 from '../../../assets/home/04.jpg'
-import img5 from '../../../assets/home/05.png'
-import img6 from '../../../assets/home/06.png'
 const Banner = () => {
-    return (
-        <Carousel>
-                <div>
-                    <img src={img1}/>
-                    
-                </div>
-                <div>
-                    <img src={img2} />
-                    
-                </div>
-                <div>
-                    <img src={img3} />
-                    
-                </div>
-                <div>
-                    <img src={img4} />
-                    
-                </div>
-                <div>
-                    <img src={img5} />
-                    
-                </div>
-                <div>
-                    <img src={img6} />
-                    
-                </div>
-            </Carousel>
-    );
+  const scrollToBranches = () => {
+    document.getElementById("branches")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <div>
+      <div
+        className="hero h-[600px] bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/images/bannerimgg.webp')",
+        }}
+      >
+        <div className="hero-overlay"></div>
+        <div className="hero-content text-neutral-content text-center">
+          <div className=" space-y-7">
+            <h1 className=" lg:text-5xl text-3xl font-title tracking-widest font-bold">
+              Welcome to Delta Kabab
+            </h1>
+            <p className=" w-9/12 mx-auto font-text tracking-wide lg:text-xl text-lg">
+              Whether you crave smoky tandoori kababs, juicy seekh kababs, or
+              mouthwatering shawarma, our menu promises an unforgettable
+              experience with every bite.
+            </p>
+            <button onClick={scrollToBranches} className="btn btn-primary">
+              Select Branch
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Banner;

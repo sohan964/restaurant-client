@@ -1,6 +1,6 @@
 import {
     FaBook,
-  FaCalendar,
+  // FaCalendar,
   FaComment,
   FaHome,
   FaList,
@@ -38,7 +38,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/bookings">
+                <NavLink to="/dashboard/manageStatus">
                   <FaBook></FaBook>Manage Bookings
                 </NavLink>
               </li>
@@ -55,18 +55,18 @@ const Dashboard = () => {
                   <FaHome></FaHome>User Home
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink to="/dashboard/History">
                   <FaCalendar></FaCalendar>History
                 </NavLink>
-              </li>
+              </li> */}
               <li>
                 <NavLink to="/dashboard/cart">
                   <FaShoppingCart></FaShoppingCart>My cart
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/review">
+                <NavLink to="/dashboard/addreview">
                   <FaComment></FaComment>Add A Review
                 </NavLink>
               </li>

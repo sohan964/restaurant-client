@@ -11,15 +11,15 @@ import MenuCategory from "../MenuCategory/MenuCategory";
 
 const Menu = () => {
   const [menu] = useMenu();
-  const dessert = menu.filter((item) => item.category === "dessert");
-  const soup = menu.filter((item) => item.category === "soup");
-  const pizza = menu.filter((item) => item.category === "pizza");
-  const offered = menu.filter((item) => item.category === "offered");
-  const salad = menu.filter((item) => item.category === "salad");
-  console.log(dessert, "\n", pizza, "\n", salad, "\n", offered, "\n", soup);
+  const seekh = menu.filter((item) => item.category === "seekh");
+  const boti = menu.filter((item) => item.category === "boti");
+  const reshmi = menu.filter((item) => item.category === "reshmi");
+  const shami = menu.filter((item) => item.category === "shami");
+  const shik = menu.filter((item) => item.category === "shik");
+  console.log(seekh, "\n", reshmi, "\n", shik, "\n", shami, "\n", boti);
 
   return (
-    <div>
+    <div className="">
       <Helmet>
         <title>Online Order | Menu</title>
       </Helmet>
@@ -28,13 +28,13 @@ const Menu = () => {
         subHeading={"Don't Miss"}
         heading={"To Days Offter"}
       ></SectionTitle>
-      <MenuCategory items={offered}></MenuCategory>
+      <MenuCategory items={shami}></MenuCategory>
       
       {/* for Dessert menu Items */}
-      <MenuCategory items={dessert} title="dessert" coverImg={desertImg}></MenuCategory>
-      <MenuCategory items={pizza} title="pizza" coverImg={pizzaImg}></MenuCategory>
-      <MenuCategory items={salad} title="salad" coverImg={saladImg}></MenuCategory>
-      <MenuCategory items={soup} title="soup" coverImg={soupImg}></MenuCategory>
+      <MenuCategory items={seekh} title="seekh" coverImg={desertImg}></MenuCategory>
+      <MenuCategory items={reshmi} title="reshmi" coverImg={pizzaImg}></MenuCategory>
+      <MenuCategory items={shik} title="shik" coverImg={saladImg}></MenuCategory>
+      <MenuCategory items={boti} title="boti" coverImg={soupImg}></MenuCategory>
     </div>
   );
 };

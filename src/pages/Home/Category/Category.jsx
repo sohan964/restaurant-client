@@ -14,14 +14,11 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 const Category = () => {
   return (
     <section>
-
         <SectionTitle
         heading={"ORDER ONLINE"}
         subHeading={"From 11am to 10pm"}
         >
-
         </SectionTitle>
-
         <Swiper
       slidesPerView={4}
       spaceBetween={30}

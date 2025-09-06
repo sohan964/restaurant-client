@@ -20,6 +20,9 @@ import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import Secret from "../pages/Shared/Secret/Secret";
+import AddReview from "../pages/Dashboard/AddReview/AddReview";
+import ManageStatus from "../pages/Dashboard/ManageStatus/ManageStatus";
+import MenuDetails from "../pages/Menu/MenuDetails/MenuDetails";
 
 
   export const router = createBrowserRouter([
@@ -50,6 +53,12 @@ import Secret from "../pages/Shared/Secret/Secret";
         {
           path: 'secret',
           element: <PrivateRoutes><Secret></Secret></PrivateRoutes>
+        },
+        {
+          path: "menu/:id",
+          element: <MenuDetails></MenuDetails>,
+          loader: ({params})=> fetch(`http://localhost:5000/menu/${params.id}`)
+
         }
 
       ]
@@ -94,6 +103,14 @@ import Secret from "../pages/Shared/Secret/Secret";
         {
           path: 'users',
           element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+        },
+        {
+          path: 'addReview',
+          element: <AddReview></AddReview>
+        },
+        {
+          path: 'manageStatus',
+          element: <ManageStatus></ManageStatus>
         }
       ]
     }

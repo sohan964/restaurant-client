@@ -78,11 +78,11 @@ const AddItems = () => {
                 <option disabled value="default">
                   Select a category
                 </option>
-                <option value="salad">Salad</option>
-                <option value="pizza">Pizza</option>
-                <option value="soup">Soup</option>
-                <option value="dessert">Dessert</option>
-                <option value="drinks">Drinks</option>
+                <option value="seekh">Seekh</option>
+                <option value="boti">Boti</option>
+                <option value="reshmi">Reshmi</option>
+                <option value="shami">Shami</option>
+                <option value="shik">Shik</option>
               </select>
             </label>
             {/* price */}
@@ -93,6 +93,7 @@ const AddItems = () => {
               <input
                 type="number"
                 placeholder="Price"
+                min="0"
                 {...register("price",{required: true})}
                 className="input input-bordered w-full "
               />

@@ -74,7 +74,7 @@ const AllUsers = () => {
           <tbody>
             {users.map((user, i) => (
               <tr key={user._id}>
-                <th>{i}</th>
+                <th>{i+1}</th>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
 

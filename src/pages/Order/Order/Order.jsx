@@ -11,7 +11,7 @@ import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 const Order = () => {
-  const categories = ['salad', 'pizza', 'soup','dessert','drinks'];
+  const categories = ['seekh', 'boti', 'reshmi','shami','shik'];
   const {category} = useParams();
   console.log('this is category',category);
   const initialIndex = categories.indexOf(category);
@@ -19,39 +19,47 @@ const Order = () => {
   const [tabIndex, setTabIndex] = useState(initialIndex);
   const [menu] = useMenu();
   
-  const dessert = menu.filter((item) => item.category === "dessert");
-  const soup = menu.filter((item) => item.category === "soup");
-  const pizza = menu.filter((item) => item.category === "pizza");
-  const drinks = menu.filter((item) => item.category === "drinks");
-  const salad = menu.filter((item) => item.category === "salad");
+  // const dessert = menu.filter((item) => item.category === "dessert");
+  // const soup = menu.filter((item) => item.category === "soup");
+  // const pizza = menu.filter((item) => item.category === "pizza");
+  // const drinks = menu.filter((item) => item.category === "drinks");
+  // const salad = menu.filter((item) => item.category === "salad");
+
+  const seekh = menu.filter((item) => item.category === "seekh");
+  const boti = menu.filter((item) => item.category === "boti");
+  const reshmi = menu.filter((item) => item.category === "reshmi");
+  const shami = menu.filter((item) => item.category === "shami");
+  const shik = menu.filter((item) => item.category === "shik");
+
   return (
     <div >
       <Helmet>
         <title>Order | Now</title>
       </Helmet>
-      <Cover img={orderCover} title="Order Food"></Cover>
+      <Cover img={orderCover} title="Order Kabab"></Cover>
       <Tabs className={" my-10 mx-auto"} defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
         <TabList>
-          <Tab>Salad</Tab>
-          <Tab>Pizza</Tab>
-          <Tab>Soup</Tab>
-          <Tab>Dessert</Tab>
-          <Tab>Drinks</Tab>
+          <Tab>Seekh</Tab>
+          <Tab>Boti</Tab>
+          <Tab>Reshmi</Tab>
+          <Tab>Shami</Tab>
+          <Tab>Shik</Tab>
         </TabList>
         <TabPanel>
-          <OrderTab items={salad}></OrderTab>
+          <OrderTab items={seekh}></OrderTab>
         </TabPanel>
         <TabPanel>
-        <OrderTab items={pizza}></OrderTab>
+        <OrderTab items={boti}></OrderTab>
         </TabPanel>
         <TabPanel>
-        <OrderTab items={soup}></OrderTab>
+        <OrderTab items={reshmi}></OrderTab>
         </TabPanel>
         <TabPanel>
-        <OrderTab items={dessert}></OrderTab>
+        <OrderTab items={shami}></OrderTab>
         </TabPanel>
         <TabPanel >
-          <OrderTab items={drinks}></OrderTab>
+          
+          <OrderTab items={shik}></OrderTab>
         </TabPanel>
         {/* need to apply paigination in furure */}
       </Tabs>
